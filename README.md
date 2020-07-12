@@ -52,6 +52,10 @@ mimeType = MIMEType("application/java-archive")
 print(mimeType) // "application/java-archive"
 print(mimeType.ext) // "jar"
 
+mimeType = MIMEType("application/java-archive", ext: "war")
+print(mimeType) // "application/java-archive"
+print(mimeType.ext) // "war"
+
 mimeType = MIMEType(ext: "css")
 print(mimeType) // "text/css"
 print(mimeType.ext) // "css"
