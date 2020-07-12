@@ -6,14 +6,13 @@
 Download and install [Swift](https://swift.org/download)
 
 ### Swift Package
-#### Shell
 ```shell
 mkdir MyApp
 cd MyApp
 swift package init --type executable // Creates an executable app named "MyApp"
 ```
 
-#### Package.swift
+### Package.swift
 ```swift
 // swift-tools-version:5.1
 
@@ -29,4 +28,49 @@ let package = Package(
         .testTarget(name: "MyAppTests", dependencies: ["MyApp"])
     ]
 )
+```
+
+### Build
+```shell
+swift build -c release
+```
+
+## Usage
+### main.swift
+```swift
+import MIMEType
+
+var mimeType = MIMEType()
+print(mimeType) // "application/octet-stream"
+print(mimeType.ext) // nil
+
+mimeType = MIMEType(type: "text", subtype: "html")
+print(mimeType) // "text/html"
+print(mimeType.ext) // "html"
+
+mimeType = MIMEType("application/java-archive")
+print(mimeType) // "application/java-archive"
+print(mimeType.ext) // "jar"
+
+mimeType = MIMEType(ext: "css")
+print(mimeType) // "text/css"
+print(mimeType.ext) // "css"
+
+mimeType = MIMEType(path: "/public/js/main.js")
+print(mimeType) // "application/javascript"
+print(mimeType.ext) // "js"
+
+mimeType = MIMEType(url: URL(string: "https://chaqmoq.dev/public/img/logo.png")!)
+print(mimeType) // "image/png"
+print(mimeType.ext) // "png"
+```
+
+### Run
+```shell
+swift run
+```
+
+### Tests
+```shell
+swift test --enable-test-discovery --sanitize=thread
 ```
