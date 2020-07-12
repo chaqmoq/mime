@@ -2,20 +2,20 @@ import class Foundation.NSString
 import struct Foundation.URL
 
 public struct MIMEType {
-    public static let type: String = "application"
-    public static let subtype: String = "octet-stream"
+    public static let defaultType: String = "application"
+    public static let defaultSubtype: String = "octet-stream"
 
     public let type: String
     public let subtype: String
     public let ext: String?
 
-    public init(type: String = type, subtype: String = subtype, ext: String? = nil) {
+    public init(type: String = defaultType, subtype: String = defaultSubtype, ext: String? = nil) {
         let mimeType = "\(type)/\(subtype)"
         let exts = MIMEType.all.filter({ $0.1 == mimeType })
 
         if exts.isEmpty {
-            self.type = MIMEType.type
-            self.subtype = MIMEType.subtype
+            self.type = MIMEType.defaultType
+            self.subtype = MIMEType.defaultSubtype
             self.ext = nil
         } else {
             self.type = type
@@ -28,7 +28,7 @@ public struct MIMEType {
                     self.ext = exts.first?.0
                 }
             } else {
-                if type == MIMEType.type && subtype == MIMEType.subtype {
+                if type == MIMEType.defaultType && subtype == MIMEType.defaultSubtype {
                     self.ext = nil
                 } else {
                     self.ext = exts.first?.0
