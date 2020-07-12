@@ -1,13 +1,31 @@
 import Foundation
 
+/// A media type (also known as a Multipurpose Internet Mail Extensions or MIME type) is a standard that indicates the nature and format of a document, file,
+/// or assortment of bytes. It is defined and standardized in IETF's [RFC 6838](https://tools.ietf.org/html/rfc6838).
 public struct MIMEType {
+    /// The default type `application`.
     public static let defaultType: String = "application"
+
+    /// The default subtype `octet-stream`.
     public static let defaultSubtype: String = "octet-stream"
 
+    /// A type such as `text`, `application`, etc.
     public let type: String
+
+    /// A subtype such as `html`, `css`, etc.
     public let subtype: String
+
+    /// A file extension matching the `type/subtype` such as `swift`, `js`, etc.
     public let ext: String?
 
+    /// Initializes a new instance with a type, subtype and file extension as a hint since `MIMEType`s can have multiple file extensions. For
+    /// example, a `MIMEType` of `application/java-archive` can have `jar`,  `ear` and `war` file extensions. It falls back to
+    /// `application/octet-stream` if the type, subtype or file extension is invalid.
+    ///
+    /// - Parameters:
+    ///   - type: A type such as `text`, `application`, etc. Defaults to `application`.
+    ///   - subtype: A subtype such as `html`, `css`, etc. Defaults to `octet-stream`.
+    ///   - ext: A file extension matching the `type/subtype` such as `swift`, `js`, etc. Defaults to `nil`.
     public init(type: String = defaultType, subtype: String = defaultSubtype, ext: String? = nil) {
         let mimeType = "\(type)/\(subtype)"
         let exts = MIMEType.all.filter({ $0.1 == mimeType })
@@ -36,6 +54,13 @@ public struct MIMEType {
         }
     }
 
+    /// Initializes a new instance with a combination of type and subtype and a file extension as a hint since `MIMEType`s can have multiple file extensions.
+    /// For example, a `MIMEType` of `application/java-archive` can have `jar`,  `ear` and `war` file extensions. It falls back to
+    /// `application/octet-stream` if the combination of type and subtype or file extension is invalid.
+    ///
+    /// - Parameters:
+    ///   - string: A `type/subtype` string.
+    ///   - ext: A file extension matching `type/subtype`. Defaults to `nil`.
     public init(_ string: String, ext: String? = nil) {
         let components = string.components(separatedBy: "/")
 
@@ -46,6 +71,9 @@ public struct MIMEType {
         }
     }
 
+    /// Initializes a new instance with a file extension. It falls back to `application/octet-stream` if the file extension is invalid.
+    ///
+    /// - Parameter ext: A file extension.
     public init(ext: String) {
         if let string = MIMEType.all.first(where: { $0.0 == ext })?.1 {
             self.init(string, ext: ext)
@@ -54,16 +82,23 @@ public struct MIMEType {
         }
     }
 
+    /// Initializes a new instance with a file path. It falls back to `application/octet-stream` if the file path is invalid.
+    ///
+    /// - Parameter path: A file path.
     public init(path: String) {
         self.init(ext: NSString(string: path).pathExtension)
     }
 
+    /// Initializes a new instance with a file URL. It falls back to `application/octet-stream` if the file URL is invalid.
+    ///
+    /// - Parameter url: A file URL.
     public init(url: URL) {
         self.init(ext: url.pathExtension)
     }
 }
 
 extension MIMEType: CustomStringConvertible {
+    /// See `CustomStringConvertible`.
     public var description: String { "\(type)/\(subtype)" }
 }
 
