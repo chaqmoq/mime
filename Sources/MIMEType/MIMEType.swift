@@ -1,5 +1,4 @@
-import class Foundation.NSString
-import struct Foundation.URL
+import Foundation
 
 public struct MIMEType {
     public static let defaultType: String = "application"

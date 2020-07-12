@@ -1,5 +1,5 @@
-import XCTest
 @testable import MIMEType
+import XCTest
 
 final class MIMETypeTests: XCTestCase {
     func testInit() {
