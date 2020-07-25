@@ -19,7 +19,7 @@ public struct MIMEType {
     public let ext: String?
 
     /// Initializes a new instance with a type, subtype and file extension as a hint since `MIMEType`s can have multiple file extensions. For
-    /// example, a `MIMEType` of `application/java-archive` can have `jar`,  `ear` and `war` file extensions. It falls back to
+    /// example, a `MIMEType` of `application/java-archive` can have `jar`, `ear` and `war` file extensions. It falls back to
     /// `application/octet-stream` if the type, subtype or file extension is invalid.
     ///
     /// - Parameters:
@@ -55,7 +55,7 @@ public struct MIMEType {
     }
 
     /// Initializes a new instance with a combination of type and subtype and a file extension as a hint since `MIMEType`s can have multiple file extensions.
-    /// For example, a `MIMEType` of `application/java-archive` can have `jar`,  `ear` and `war` file extensions. It falls back to
+    /// For example, a `MIMEType` of `application/java-archive` can have `jar`, `ear` and `war` file extensions. It falls back to
     /// `application/octet-stream` if the combination of type and subtype or file extension is invalid.
     ///
     /// - Parameters:
