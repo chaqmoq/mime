@@ -2,7 +2,7 @@ import Foundation
 
 extension MIMEType {
     public static func guess(from data: Data) -> MIMEType {
-        return guess(from: [UInt8](data))
+        guess(from: [UInt8](data))
     }
 
     public static func guess(from bytes: [UInt8]) -> MIMEType {
