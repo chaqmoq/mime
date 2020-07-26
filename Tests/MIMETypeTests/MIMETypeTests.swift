@@ -40,12 +40,12 @@ final class MIMETypeTests: XCTestCase {
         XCTAssertEqual("\(mimeType)", "text/html")
 
         // Act
-        mimeType = MIMEType(type: "application", subtype: "octet-stream", ext: "dmg")
+        mimeType = MIMEType(type: "application", subtype: "octet-stream", ext: "iso")
 
         // Assert
         XCTAssertEqual(mimeType.type, "application")
         XCTAssertEqual(mimeType.subtype, "octet-stream")
-        XCTAssertEqual(mimeType.ext, "dmg")
+        XCTAssertEqual(mimeType.ext, "iso")
         XCTAssertEqual("\(mimeType)", "application/octet-stream")
     }
 
