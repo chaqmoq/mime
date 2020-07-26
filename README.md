@@ -67,6 +67,16 @@ print(mimeType.ext) // "js"
 mimeType = MIMEType(url: URL(string: "https://chaqmoq.dev/public/img/logo.png")!)
 print(mimeType) // "image/png"
 print(mimeType.ext) // "png"
+
+let data = Data([0x89, 0x50, 0x4E, 0x47, ...])
+mimeType = MIMEType.guess(from: data)
+print(mimeType) // "image/jpeg"
+print(mimeType.ext) // "jpeg"
+
+let bytes: [UInt8] = [0x47, 0x49, 0x46, ...]
+mimeType = MIMEType.guess(from: bytes)
+print(mimeType) // "image/gif"
+print(mimeType.ext) // "gif"
 ```
 
 ### Run
