@@ -1,6 +1,10 @@
 import Foundation
 
 extension MIMEType {
+    public static func guess(from data: Data) -> MIMEType {
+        return guess(from: [UInt8](data))
+    }
+
     public static func guess(from bytes: [UInt8]) -> MIMEType {
         if bytes[0...3] == [0x50, 0x4B, 0x03, 0x04] && bytes[30...57] == [
             0x6D, 0x69, 0x6D, 0x65, 0x74, 0x79, 0x70, 0x65, 0x61, 0x70,
