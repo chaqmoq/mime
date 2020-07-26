@@ -1,10 +1,18 @@
 import Foundation
 
 extension MIMEType {
+    /// Guesses a `MIMEType` from data.
+    ///
+    /// - Parameter data: A value with `Data` type.
+    /// - Returns: A guessed `MIMEType` or `MIMEType("application/octet-stream")`.
     public static func guess(from data: Data) -> MIMEType {
         guess(from: [UInt8](data))
     }
 
+    /// Guesses a `MIMEType` from bytes.
+    ///
+    /// - Parameter bytes: A value in bytes.
+    /// - Returns: A guessed `MIMEType` or `MIMEType("application/octet-stream")`.
     public static func guess(from bytes: [UInt8]) -> MIMEType {
         if bytes[0...3] == [0x50, 0x4B, 0x03, 0x04] && bytes[30...57] == [
             0x6D, 0x69, 0x6D, 0x65, 0x74, 0x79, 0x70, 0x65, 0x61, 0x70,
