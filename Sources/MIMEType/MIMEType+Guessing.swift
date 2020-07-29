@@ -123,7 +123,7 @@ extension MIMEType {
             return MIMEType("image/png")
         } else if bytesCount > 3 &&
             (bytes[0...3] == [0x49, 0x49, 0x2A, 0x00] || bytes[0...3] == [0x4D, 0x4D, 0x00, 0x2A]) {
-            return bytes[8...9] == [0x43, 0x52] ? MIMEType("image/x-canon-cr2") : MIMEType("image/tiff")
+            return bytesCount > 9 && bytes[8...9] == [0x43, 0x52] ? MIMEType("image/x-canon-cr2") : MIMEType("image/tiff")
         } else if bytesCount > 3 && bytes[0...3] == [0x38, 0x42, 0x50, 0x53] {
             return MIMEType("image/vnd.adobe.photoshop")
         } else if bytesCount > 2 && bytes[0...2] == [0x49, 0x49, 0xBC] {
@@ -152,8 +152,8 @@ extension MIMEType {
                 bytes[0...11] == [0x00, 0x00, 0x00, 0x1C, 0x66, 0x74, 0x79, 0x70, 0x69, 0x73, 0x6F, 0x6D]
             ) ||
             (
-                bytesCount > 11 &&
-                bytes[0...11] == [
+                bytesCount > 15 &&
+                bytes[0...15] == [
                     0x00, 0x00, 0x00, 0x1C, 0x66, 0x74, 0x79, 0x70, 0x6D, 0x70, 0x34, 0x32, 0x00, 0x00, 0x00, 0x00
                 ]
             ) {
