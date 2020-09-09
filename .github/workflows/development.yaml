@@ -31,7 +31,7 @@ jobs:
     - name: Run tests
       run: swift test --enable-code-coverage --enable-test-discovery --sanitize=thread
     - name: Generate coverage report
-      run: llvm-cov export -format="lcov" .build/debug/chaqmoq-mime-typePackageTests.xctest -instr-profile .build/debug/codecov/default.profdata > coverage.lcov
+      run: llvm-cov export -format="lcov" .build/debug/chaqmoq-mimePackageTests.xctest -instr-profile .build/debug/codecov/default.profdata > coverage.lcov
     - name: Upload to codecov.io
       uses: codecov/codecov-action@v1.0.3
       with:
