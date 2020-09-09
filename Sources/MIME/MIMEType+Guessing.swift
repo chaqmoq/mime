@@ -4,7 +4,7 @@ extension MIMEType {
     /// Guesses a `MIMEType` from data.
     ///
     /// - Parameter data: A value with `Data` type.
-    /// - Returns: A guessed `MIMEType` or `MIMEType("application/octet-stream")`.
+    /// - Returns: A guessed `MIMEType` or `MIMEType("application/octet-stream")` if it can't guess.
     public static func guess(from data: Data) -> MIMEType {
         guess(from: [UInt8](data))
     }
@@ -12,7 +12,7 @@ extension MIMEType {
     /// Guesses a `MIMEType` from bytes.
     ///
     /// - Parameter bytes: A value in bytes.
-    /// - Returns: A guessed `MIMEType` or `MIMEType("application/octet-stream")`.
+    /// - Returns: A guessed `MIMEType` or `MIMEType("application/octet-stream")` if it can't guess.
     public static func guess(from bytes: [UInt8]) -> MIMEType {
         let bytesCount = bytes.count
 
