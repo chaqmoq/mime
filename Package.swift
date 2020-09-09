@@ -3,13 +3,13 @@
 import PackageDescription
 
 let package = Package(
-    name: "chaqmoq-mime-type",
+    name: "chaqmoq-mime",
     products: [
-        .library(name: "MIMEType", targets: ["MIMEType"])
+        .library(name: "MIME", targets: ["MIME"])
     ],
     targets: [
-        .target(name: "MIMEType"),
-        .testTarget(name: "MIMETypeTests", dependencies: ["MIMEType"])
+        .target(name: "MIME"),
+        .testTarget(name: "MIMETests", dependencies: ["MIME"])
     ],
     swiftLanguageVersions: [.v5]
 )

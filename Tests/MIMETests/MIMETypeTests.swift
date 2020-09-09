@@ -1,4 +1,4 @@
-@testable import MIMEType
+@testable import MIME
 import XCTest
 
 final class MIMETypeTests: XCTestCase {
