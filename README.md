@@ -40,43 +40,43 @@ swift build -c release
 ```swift
 import MIME
 
-var mimeType = MIMEType()
-print(mimeType) // "application/octet-stream"
-print(mimeType.ext) // nil
+var mime = MIME()
+print(mime) // "application/octet-stream"
+print(mime.ext) // nil
 
-mimeType = MIMEType(type: "text", subtype: "html")
-print(mimeType) // "text/html"
-print(mimeType.ext) // "html"
+mime = MIME(type: "text", subtype: "html")
+print(mime) // "text/html"
+print(mime.ext) // "html"
 
-mimeType = MIMEType("application/java-archive")
-print(mimeType) // "application/java-archive"
-print(mimeType.ext) // "jar"
+mime = MIME("application/java-archive")
+print(mime) // "application/java-archive"
+print(mime.ext) // "jar"
 
-mimeType = MIMEType("application/java-archive", ext: "war")
-print(mimeType) // "application/java-archive"
-print(mimeType.ext) // "war"
+mime = MIME("application/java-archive", ext: "war")
+print(mime) // "application/java-archive"
+print(mime.ext) // "war"
 
-mimeType = MIMEType(ext: "css")
-print(mimeType) // "text/css"
-print(mimeType.ext) // "css"
+mime = MIME(ext: "css")
+print(mime) // "text/css"
+print(mime.ext) // "css"
 
-mimeType = MIMEType(path: "/public/js/main.js")
-print(mimeType) // "application/javascript"
-print(mimeType.ext) // "js"
+mime = MIME(path: "/public/js/main.js")
+print(mime) // "application/javascript"
+print(mime.ext) // "js"
 
-mimeType = MIMEType(url: URL(string: "https://chaqmoq.dev/public/img/logo.png")!)
-print(mimeType) // "image/png"
-print(mimeType.ext) // "png"
+mime = MIME(url: URL(string: "https://chaqmoq.dev/public/img/logo.png")!)
+print(mime) // "image/png"
+print(mime.ext) // "png"
 
 let data = Data([0xFF, 0xD8, 0xFF, ...])
-mimeType = MIMEType.guess(from: data)
-print(mimeType) // "image/jpeg"
-print(mimeType.ext) // "jpeg"
+mime = MIME.guess(from: data)
+print(mime) // "image/jpeg"
+print(mime.ext) // "jpeg"
 
 let bytes: [UInt8] = [0x47, 0x49, 0x46, ...]
-mimeType = MIMEType.guess(from: bytes)
-print(mimeType) // "image/gif"
-print(mimeType.ext) // "gif"
+mime = MIME.guess(from: bytes)
+print(mime) // "image/gif"
+print(mime.ext) // "gif"
 ```
 
 ### Run

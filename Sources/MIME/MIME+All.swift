@@ -1,4 +1,4 @@
-extension MIMEType {
+extension MIME {
     static var all: [(String, String)] {
         return [
             ("atom", "application/atom+xml"),

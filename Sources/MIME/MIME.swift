@@ -2,7 +2,7 @@ import Foundation
 
 /// A media type (also known as a Multipurpose Internet Mail Extensions or MIME type) is a standard that indicates the nature and format of a document, file,
 /// or assortment of bytes. It is defined and standardized in IETF's [RFC 6838](https://tools.ietf.org/html/rfc6838).
-public struct MIMEType {
+public struct MIME {
     /// A default type which is `application`.
     public static let type: String = "application"
 
@@ -18,8 +18,8 @@ public struct MIMEType {
     /// A file extension matching a `type/subtype` value such as `swift`, `js`, etc.
     public let ext: String?
 
-    /// Initializes a new instance with a type, subtype and file extension as a hint since `MIMEType`s can have multiple file extensions. For
-    /// example, a `MIMEType` of `application/java-archive` can have `jar`, `ear` and `war` file extensions. It falls back to
+    /// Initializes a new instance with a type, subtype and file extension as a hint since `MIME`s can have multiple file extensions. For
+    /// example, a `MIME` of `application/java-archive` can have `jar`, `ear` and `war` file extensions. It falls back to
     /// `application/octet-stream` if the type, subtype or file extension is invalid.
     ///
     /// - Parameters:
@@ -27,25 +27,25 @@ public struct MIMEType {
     ///   - subtype: A subtype such as `html`, `css`, etc. Defaults to `octet-stream`.
     ///   - ext: A file extension matching a `type/subtype` value such as `swift`, `js`, etc. Defaults to `nil`.
     public init(type: String = type, subtype: String = subtype, ext: String? = nil) {
-        let mimeType = "\(type)/\(subtype)"
-        let exts = MIMEType.all.filter({ $0.1 == mimeType })
+        let mime = "\(type)/\(subtype)"
+        let exts = MIME.all.filter({ $0.1 == mime })
 
         if exts.isEmpty {
-            self.type = MIMEType.type
-            self.subtype = MIMEType.subtype
+            self.type = MIME.type
+            self.subtype = MIME.subtype
             self.ext = nil
         } else {
             self.type = type
             self.subtype = subtype
 
             if let ext = ext {
-                if exts.contains(where: { $0.0 == ext && $0.1 == mimeType }) {
+                if exts.contains(where: { $0.0 == ext && $0.1 == mime }) {
                     self.ext = ext
                 } else {
                     self.ext = exts.first?.0
                 }
             } else {
-                if type == MIMEType.type && subtype == MIMEType.subtype {
+                if type == MIME.type && subtype == MIME.subtype {
                     self.ext = nil
                 } else {
                     self.ext = exts.first?.0
@@ -54,8 +54,8 @@ public struct MIMEType {
         }
     }
 
-    /// Initializes a new instance with a combination of type and subtype and a file extension as a hint since `MIMEType`s can have multiple file extensions.
-    /// For example, a `MIMEType` of `application/java-archive` can have `jar`, `ear` and `war` file extensions. It falls back to
+    /// Initializes a new instance with a combination of type and subtype and a file extension as a hint since `MIME`s can have multiple file extensions.
+    /// For example, a `MIME` of `application/java-archive` can have `jar`, `ear` and `war` file extensions. It falls back to
     /// `application/octet-stream` if the combination of type and subtype or file extension is invalid.
     ///
     /// - Parameters:
@@ -75,7 +75,7 @@ public struct MIMEType {
     ///
     /// - Parameter ext: A file extension.
     public init(ext: String) {
-        if let string = MIMEType.all.first(where: { $0.0 == ext })?.1 {
+        if let string = MIME.all.first(where: { $0.0 == ext })?.1 {
             self.init(string, ext: ext)
         } else {
             self.init()
@@ -97,7 +97,7 @@ public struct MIMEType {
     }
 }
 
-extension MIMEType: CustomStringConvertible {
+extension MIME: CustomStringConvertible {
     /// See `CustomStringConvertible`.
     public var description: String { "\(type)/\(subtype)" }
 }
