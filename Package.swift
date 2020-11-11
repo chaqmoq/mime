@@ -9,7 +9,9 @@ let package = Package(
     ],
     targets: [
         .target(name: "MIME"),
-        .testTarget(name: "MIMETests", dependencies: ["MIME"])
+        .testTarget(name: "MIMETests", dependencies: [
+            .target(name: "MIME")
+        ])
     ],
     swiftLanguageVersions: [.v5]
 )

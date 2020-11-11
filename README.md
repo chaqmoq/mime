@@ -24,8 +24,12 @@ let package = Package(
         .package(url: "https://github.com/chaqmoq/mime.git", .branch("master"))
     ],
     targets: [
-        .target(name: "MyApp", dependencies: ["MIME"]),
-        .testTarget(name: "MyAppTests", dependencies: ["MyApp"])
+        .target(name: "MyApp", dependencies: [
+            .product(name: "MIME", package: "chaqmoq-mime"),
+        ]),
+        .testTarget(name: "MyAppTests", dependencies: [
+            .target(name: "MyApp")
+        ])
     ]
 )
 ```
