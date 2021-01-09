@@ -1,5 +1,5 @@
 extension MIME {
-    static var all: [(String, String)] {
+    static var types: [(String, String)] {
         return [
             ("atom", "application/atom+xml"),
             ("epub", "application/epub+zip"),

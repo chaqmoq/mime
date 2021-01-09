@@ -28,7 +28,7 @@ public struct MIME {
     ///   - ext: A file extension matching a `type/subtype` value such as `swift`, `js`, etc. Defaults to `nil`.
     public init(type: String = type, subtype: String = subtype, ext: String? = nil) {
         let mime = "\(type)/\(subtype)"
-        let exts = MIME.all.filter({ $0.1 == mime })
+        let exts = MIME.types.filter({ $0.1 == mime })
 
         if exts.isEmpty {
             self.type = MIME.type
@@ -75,7 +75,7 @@ public struct MIME {
     ///
     /// - Parameter ext: A file extension.
     public init(ext: String) {
-        if let string = MIME.all.first(where: { $0.0 == ext })?.1 {
+        if let string = MIME.types.first(where: { $0.0 == ext })?.1 {
             self.init(string, ext: ext)
         } else {
             self.init()
