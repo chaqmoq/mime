@@ -29,7 +29,7 @@ extension MIME {
             (bytes[4...7] == [0x00, 0x01, 0x00, 0x00] || bytes[4...7] == [0x4F, 0x54, 0x54, 0x4F]) {
             return .init("application/font-woff")
         } else if bytesCount > 7 &&
-            bytes[0...3] == [0x77, 0x4F, 0x46,  0x32] &&
+            bytes[0...3] == [0x77, 0x4F, 0x46, 0x32] &&
             (bytes[4...7] == [0x00, 0x01, 0x00, 0x00] || bytes[4...7] == [0x4F, 0x54, 0x54, 0x4F]) {
             return .init("application/font-woff", ext: "woff2")
         } else if bytesCount > 2 && bytes[0...2] == [0x1F, 0x8B, 0x08] {
