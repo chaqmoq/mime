@@ -18,8 +18,8 @@ public struct MIME {
     /// A file extension matching a `type/subtype` value such as `swift`, `js`, etc.
     public let ext: String?
 
-    /// Initializes a new instance with a type, subtype and file extension as a hint since `MIME`s can have multiple file extensions. For
-    /// example, a `MIME` of `application/java-archive` can have `jar`, `ear` and `war` file extensions. It falls back to
+    /// Initializes a new instance with a type, subtype and file extension as a hint since `MIME` types can have multiple file extensions. For
+    /// example, a `MIME` type of `application/java-archive` can have `jar`, `ear` and `war` file extensions. It falls back to
     /// `application/octet-stream` if the type, subtype or file extension is invalid.
     ///
     /// - Parameters:
@@ -54,9 +54,9 @@ public struct MIME {
         }
     }
 
-    /// Initializes a new instance with a combination of type and subtype and a file extension as a hint since `MIME`s can have multiple file extensions.
-    /// For example, a `MIME` of `application/java-archive` can have `jar`, `ear` and `war` file extensions. It falls back to
-    /// `application/octet-stream` if the combination of type and subtype or file extension is invalid.
+    /// Initializes a new instance with a combination of type and subtype and a file extension as a hint since `MIME` types can have multiple file extensions.
+    /// For example, a `MIME` type of `application/java-archive` can have `jar`, `ear` and `war` file extensions. It falls back to
+    /// `application/octet-stream` if the combination of `type/subtype` and file extension is invalid.
     ///
     /// - Parameters:
     ///   - string: A `type/subtype` value.

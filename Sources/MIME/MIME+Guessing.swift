@@ -1,7 +1,7 @@
 import Foundation
 
 extension MIME {
-    /// Guesses a `MIME` from data.
+    /// Guesses a `MIME` type from data.
     ///
     /// - Parameter data: A value with `Data` type.
     /// - Returns: A guessed `MIME` or `.init("application/octet-stream")` if it can't guess.
@@ -9,10 +9,10 @@ extension MIME {
         guess(from: [UInt8](data))
     }
 
-    /// Guesses a `MIME` from bytes.
+    /// Guesses a `MIME` type from bytes.
     ///
     /// - Parameter bytes: A value in bytes.
-    /// - Returns: A guessed `MIME` or `.init("application/octet-stream")` if it can't guess.
+    /// - Returns: A guessed `MIME` type or `.init("application/octet-stream")` if it can't guess.
     public static func guess(from bytes: [UInt8]) -> MIME {
         let bytesCount = bytes.count
 
