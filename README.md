@@ -65,7 +65,7 @@ print(mime) // "text/css"
 print(mime.ext) // "css"
 
 mime = MIME(path: "/public/js/main.js")
-print(mime) // "application/javascript"
+print(mime) // "text/javascript"
 print(mime.ext) // "js"
 
 mime = MIME(url: URL(string: "https://chaqmoq.dev/public/img/logo.png")!)
@@ -75,7 +75,7 @@ print(mime.ext) // "png"
 let data = Data([0xFF, 0xD8, 0xFF, ...])
 mime = MIME.guess(from: data)
 print(mime) // "image/jpeg"
-print(mime.ext) // "jpeg"
+print(mime.ext) // "jpg"
 
 let bytes: [UInt8] = [0x47, 0x49, 0x46, ...]
 mime = MIME.guess(from: bytes)
