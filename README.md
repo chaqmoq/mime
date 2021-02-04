@@ -21,7 +21,7 @@ import PackageDescription
 let package = Package(
     name: "MyApp",
     dependencies: [
-        .package(name: "chaqmoq-mime", url: "https://github.com/chaqmoq/mime.git", from: "1.0.0"),
+        .package(name: "chaqmoq-mime", url: "https://github.com/chaqmoq/mime.git", from: "1.1.0"),
     ],
     targets: [
         .target(name: "MyApp", dependencies: [
