@@ -54,7 +54,7 @@ extension MIME {
             0x69, 0x61, 0x6E, 0x2D, 0x62, 0x69, 0x6E, 0x61, 0x72, 0x79] {
             return .init("application/x-deb")
         } else if bytesCount > 3 && bytes[0...3] == [0x43, 0x72, 0x32, 0x34] {
-            return .init("application/x-google-chrome-extension")
+            return .init("application/x-chrome-extension")
         } else if bytesCount > 3 && bytes[0...3] == [0x4C, 0x5A, 0x49, 0x50] {
             return .init("application/x-lzip")
         } else if bytesCount > 1 && bytes[0...1] == [0x4D, 0x5A] {
@@ -65,7 +65,7 @@ extension MIME {
             bytes[0...13] == [0x06, 0x0E, 0x2B, 0x34, 0x02, 0x05, 0x01, 0x01, 0x0D, 0x01, 0x02, 0x01, 0x01, 0x02] {
             return .init("application/mxf")
         } else if bytesCount > 3 && bytes[0...3] == [0x4E, 0x45, 0x53, 0x1A] {
-            return .init("application/x-nintendo-nes-rom")
+            return .init("application/x-nes-rom")
         } else if bytesCount > 2 && (bytes[0] == 0x43 || bytes[0] == 0x46) && bytes[1...2] == [0x57, 0x53] {
             return .init("application/x-shockwave-flash")
         } else if bytesCount > 3 && bytes[0...3] == [0x53, 0x51, 0x4C, 0x69] {
@@ -79,7 +79,7 @@ extension MIME {
         } else if bytesCount > 3 && bytes[0...3] == [0xED, 0xAB, 0xEE, 0xDB] {
             return .init("application/x-rpm")
         } else if bytesCount > 6 && bytes[0...6] == [0x21, 0x3C, 0x61, 0x72, 0x63, 0x68, 0x3E] {
-            return .init("application/x-unix-archive")
+            return .init("application/x-archive")
         } else if bytesCount > 49 && bytes[0...3] == [0x50, 0x4B, 0x03, 0x04] && bytes[30...49] == [
             0x4D, 0x45, 0x54, 0x41, 0x2D, 0x49, 0x4E, 0x46, 0x2F, 0x6D,
             0x6F, 0x7A, 0x69, 0x6C, 0x6C, 0x61, 0x2E, 0x72, 0x73, 0x61] {

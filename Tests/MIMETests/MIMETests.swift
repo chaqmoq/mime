@@ -94,10 +94,10 @@ final class MIMETests: XCTestCase {
         let mime = MIME(path: "/public/js/main.js")
 
         // Assert
-        XCTAssertEqual(mime.type, "application")
+        XCTAssertEqual(mime.type, "text")
         XCTAssertEqual(mime.subtype, "javascript")
         XCTAssertEqual(mime.ext, "js")
-        XCTAssertEqual("\(mime)", "application/javascript")
+        XCTAssertEqual("\(mime)", "text/javascript")
     }
 
     func testInitWithURL() {
@@ -189,7 +189,7 @@ final class MIMETests: XCTestCase {
         // Assert
         XCTAssertEqual(mime.type, "application")
         XCTAssertEqual(mime.subtype, "font-woff")
-        XCTAssertEqual(mime.ext, "woff2")
+        XCTAssertEqual(mime.ext, "woff")
         XCTAssertEqual("\(mime)", "application/font-woff")
 
         // Arrange
@@ -201,7 +201,7 @@ final class MIMETests: XCTestCase {
         // Assert
         XCTAssertEqual(mime.type, "application")
         XCTAssertEqual(mime.subtype, "font-woff")
-        XCTAssertEqual(mime.ext, "woff2")
+        XCTAssertEqual(mime.ext, "woff")
         XCTAssertEqual("\(mime)", "application/font-woff")
 
         // Arrange
@@ -249,7 +249,7 @@ final class MIMETests: XCTestCase {
         // Assert
         XCTAssertEqual(mime.type, "application")
         XCTAssertEqual(mime.subtype, "postscript")
-        XCTAssertEqual(mime.ext, "ps")
+        XCTAssertEqual(mime.ext, "ai")
         XCTAssertEqual("\(mime)", "application/postscript")
 
         // Arrange
@@ -359,9 +359,9 @@ final class MIMETests: XCTestCase {
 
         // Assert
         XCTAssertEqual(mime.type, "application")
-        XCTAssertEqual(mime.subtype, "x-google-chrome-extension")
+        XCTAssertEqual(mime.subtype, "x-chrome-extension")
         XCTAssertEqual(mime.ext, "crx")
-        XCTAssertEqual("\(mime)", "application/x-google-chrome-extension")
+        XCTAssertEqual("\(mime)", "application/x-chrome-extension")
 
         // Arrange
         data = Data([0x4C, 0x5A, 0x49, 0x50, 0x50])
@@ -407,9 +407,9 @@ final class MIMETests: XCTestCase {
 
         // Assert
         XCTAssertEqual(mime.type, "application")
-        XCTAssertEqual(mime.subtype, "x-nintendo-nes-rom")
+        XCTAssertEqual(mime.subtype, "x-nes-rom")
         XCTAssertEqual(mime.ext, "nes")
-        XCTAssertEqual("\(mime)", "application/x-nintendo-nes-rom")
+        XCTAssertEqual("\(mime)", "application/x-nes-rom")
 
         // Arrange
         data = Data([0x43, 0x57, 0x53, 0x53])
@@ -444,7 +444,7 @@ final class MIMETests: XCTestCase {
         // Assert
         XCTAssertEqual(mime.type, "application")
         XCTAssertEqual(mime.subtype, "x-sqlite3")
-        XCTAssertEqual(mime.ext, "sqlite")
+        XCTAssertEqual(mime.ext, "sqlite3")
         XCTAssertEqual("\(mime)", "application/x-sqlite3")
 
         // Arrange
@@ -503,9 +503,9 @@ final class MIMETests: XCTestCase {
 
         // Assert
         XCTAssertEqual(mime.type, "application")
-        XCTAssertEqual(mime.subtype, "x-unix-archive")
-        XCTAssertEqual(mime.ext, "ar")
-        XCTAssertEqual("\(mime)", "application/x-unix-archive")
+        XCTAssertEqual(mime.subtype, "x-archive")
+        XCTAssertEqual(mime.ext, "a")
+        XCTAssertEqual("\(mime)", "application/x-archive")
 
         // Arrange
         data = Data(
@@ -619,7 +619,7 @@ final class MIMETests: XCTestCase {
         // Assert
         XCTAssertEqual(mime.type, "audio")
         XCTAssertEqual(mime.subtype, "midi")
-        XCTAssertEqual(mime.ext, "midi")
+        XCTAssertEqual(mime.ext, "mid")
         XCTAssertEqual("\(mime)", "audio/midi")
 
         // Arrange
@@ -667,7 +667,7 @@ final class MIMETests: XCTestCase {
         // Assert
         XCTAssertEqual(mime.type, "audio")
         XCTAssertEqual(mime.subtype, "ogg")
-        XCTAssertEqual(mime.ext, "ogg")
+        XCTAssertEqual(mime.ext, "oga")
         XCTAssertEqual("\(mime)", "audio/ogg")
 
         // Arrange
@@ -739,7 +739,7 @@ final class MIMETests: XCTestCase {
         // Assert
         XCTAssertEqual(mime.type, "image")
         XCTAssertEqual(mime.subtype, "jpeg")
-        XCTAssertEqual(mime.ext, "jpeg")
+        XCTAssertEqual(mime.ext, "jpg")
         XCTAssertEqual("\(mime)", "image/jpeg")
 
         // Arrange
@@ -775,7 +775,7 @@ final class MIMETests: XCTestCase {
         // Assert
         XCTAssertEqual(mime.type, "image")
         XCTAssertEqual(mime.subtype, "tiff")
-        XCTAssertEqual(mime.ext, "tiff")
+        XCTAssertEqual(mime.ext, "tif")
         XCTAssertEqual("\(mime)", "image/tiff")
 
         // Arrange
@@ -799,7 +799,7 @@ final class MIMETests: XCTestCase {
         // Assert
         XCTAssertEqual(mime.type, "image")
         XCTAssertEqual(mime.subtype, "vnd.ms-photo")
-        XCTAssertEqual(mime.ext, "jxr")
+        XCTAssertEqual(mime.ext, "wdp")
         XCTAssertEqual("\(mime)", "image/vnd.ms-photo")
 
         // Arrange
@@ -922,7 +922,7 @@ final class MIMETests: XCTestCase {
         // Assert
         XCTAssertEqual(mime.type, "video")
         XCTAssertEqual(mime.subtype, "quicktime")
-        XCTAssertEqual(mime.ext, "mov")
+        XCTAssertEqual(mime.ext, "qt")
         XCTAssertEqual("\(mime)", "video/quicktime")
 
         // Arrange

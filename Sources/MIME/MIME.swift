@@ -28,29 +28,28 @@ public struct MIME {
     ///   - ext: A file extension matching a `type/subtype` value such as `swift`, `js`, etc. Defaults to `nil`.
     public init(type: String = type, subtype: String = subtype, ext: String? = nil) {
         let mime = "\(type)/\(subtype)"
-        let exts = MIME.types.filter({ $0.1 == mime })
 
-        if exts.isEmpty {
-            self.type = MIME.type
-            self.subtype = MIME.subtype
-            self.ext = nil
-        } else {
+        if let exts = MIME.map[mime], !exts.isEmpty {
             self.type = type
             self.subtype = subtype
 
             if let ext = ext {
-                if exts.contains(where: { $0.0 == ext && $0.1 == mime }) {
+                if exts.contains(where: { $0 == ext }) {
                     self.ext = ext
                 } else {
-                    self.ext = exts.first?.0
+                    self.ext = exts.first
                 }
             } else {
                 if type == MIME.type && subtype == MIME.subtype {
                     self.ext = nil
                 } else {
-                    self.ext = exts.first?.0
+                    self.ext = exts.first
                 }
             }
+        } else {
+            self.type = MIME.type
+            self.subtype = MIME.subtype
+            self.ext = nil
         }
     }
 
@@ -59,10 +58,10 @@ public struct MIME {
     /// `application/octet-stream` if the combination of `type/subtype` and file extension is invalid.
     ///
     /// - Parameters:
-    ///   - string: A `type/subtype` value.
+    ///   - mime: A `type/subtype` value.
     ///   - ext: A file extension matching a `type/subtype` value. Defaults to `nil`.
-    public init(_ string: String, ext: String? = nil) {
-        let components = string.components(separatedBy: "/")
+    public init(_ mime: String, ext: String? = nil) {
+        let components = mime.components(separatedBy: "/")
 
         if let type = components.first, let subtype = components.last, components.count == 2 {
             self.init(type: type, subtype: subtype, ext: ext)
@@ -75,8 +74,8 @@ public struct MIME {
     ///
     /// - Parameter ext: A file extension.
     public init(ext: String) {
-        if let string = MIME.types.first(where: { $0.0 == ext })?.1 {
-            self.init(string, ext: ext)
+        if let mime = MIME.reverseMap[ext]?.first {
+            self.init(mime, ext: ext)
         } else {
             self.init()
         }
