@@ -29,7 +29,7 @@ public struct MIME {
     public init(type: String = type, subtype: String = subtype, ext: String? = nil) {
         let mime = "\(type)/\(subtype)"
 
-        if let exts = MIME.map[mime], !exts.isEmpty {
+        if let exts = map[mime], !exts.isEmpty {
             self.type = type
             self.subtype = subtype
 
@@ -74,7 +74,7 @@ public struct MIME {
     ///
     /// - Parameter ext: A file extension.
     public init(ext: String) {
-        if let mime = MIME.reverseMap[ext]?.first {
+        if let mime = reverseMap[ext]?.first {
             self.init(mime, ext: ext)
         } else {
             self.init()
