@@ -12,7 +12,7 @@ cd MyApp
 swift package init --type executable // Creates an executable app named "MyApp"
 ```
 
-### Package.swift
+#### Package.swift
 ```swift
 // swift-tools-version:5.3
 
@@ -40,7 +40,6 @@ swift build -c release
 ```
 
 ## Usage
-### main.swift
 ```swift
 import MIME
 
@@ -83,12 +82,7 @@ print(mime) // "image/gif"
 print(mime.ext) // "gif"
 ```
 
-### Run
-```shell
-swift run
-```
-
-### Tests
+## Tests
 ```shell
 swift test --enable-test-discovery --sanitize=thread
 ```
