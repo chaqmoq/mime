@@ -19,7 +19,7 @@ jobs:
       uses: sukhrobkhakimov/publish-jazzy-docs@v1
       with:
         personal_access_token: ${{ secrets.ACCESS_TOKEN }}
-        args: "--theme fullwidth"
+        args: "--module MIME --theme fullwidth --root-url https://chaqmoq.dev/mime --source-host github --source-host-url https://github.com/chaqmoq/mime"
   ubuntu-bionic:
     runs-on: ubuntu-latest
     container:
