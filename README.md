@@ -6,6 +6,7 @@
         <a href="https://github.com/chaqmoq/mime/actions"><img src="https://github.com/chaqmoq/mime/workflows/ci/badge.svg" /></a>
         <a href="https://www.codacy.com/gh/chaqmoq/mime/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=chaqmoq/mime&amp;utm_campaign=Badge_Grade"><img src="https://app.codacy.com/project/badge/Grade/8db2563aade54b95afdefa13fbe8dbb7" /></a>
         <a href="https://codecov.io/gh/chaqmoq/mime"><img src="https://codecov.io/gh/chaqmoq/mime/branch/master/graph/badge.svg?token=OamloHEVvh" /></a>
+        <a href="https://sonarcloud.io/project/information?id=chaqmoq_mime"><img src="https://sonarcloud.io/api/project_badges/measure?project=chaqmoq_mime&metric=alert_status" /></a>
         <a href="https://chaqmoq.dev/mime/"><img src="https://github.com/chaqmoq/mime/raw/gh-pages/badge.svg" /></a>
         <a href="https://github.com/chaqmoq/mime/blob/master/CONTRIBUTING.md"><img src="https://img.shields.io/badge/contributing-guide-brightgreen.svg" /></a>
         <a href="https://twitter.com/chaqmoqdev"><img src="https://img.shields.io/badge/twitter-chaqmoqdev-brightgreen.svg" /></a>
