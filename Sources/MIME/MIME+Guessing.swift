@@ -132,7 +132,8 @@ extension MIME {
             return .init("image/webp")
         } else if bytesCount > 3 && bytes[0...3] == [0x00, 0x00, 0x01, 0x00] {
             return .init("image/x-icon")
-        } else if bytesCount > 11 && (bytes[8...11] == [0x68, 0x65, 0x69, 0x63] || bytes[8...11] == [0x68, 0x65, 0x69, 0x78]) {
+        } else if bytesCount > 11 &&
+            (bytes[8...11] == [0x68, 0x65, 0x69, 0x63] || bytes[8...11] == [0x68, 0x65, 0x69, 0x78]) {
             return .init("image/heic")
         } else if
             (
