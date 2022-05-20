@@ -984,5 +984,17 @@ final class MIMETests: XCTestCase {
         XCTAssertEqual(mime.subtype, "octet-stream")
         XCTAssertNil(mime.ext)
         XCTAssertEqual("\(mime)", "application/octet-stream")
+
+        // Arrange
+        data = Data([0x52, 0x49, 0x46, 0x46, 0x46, 0x46, 0x46, 0x46, 0x68, 0x65, 0x69, 0x63])
+
+        // Act
+        mime = MIME.guess(from: data)
+
+        // Assert
+        XCTAssertEqual(mime.type, "image")
+        XCTAssertEqual(mime.subtype, "heic")
+        XCTAssertEqual(mime.ext, "heic")
+        XCTAssertEqual("\(mime)", "image/heic")
     }
 }
