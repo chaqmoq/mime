@@ -9,7 +9,7 @@
         <a href="https://sonarcloud.io/project/information?id=chaqmoq_mime"><img src="https://sonarcloud.io/api/project_badges/measure?project=chaqmoq_mime&metric=alert_status" /></a>
         <a href="https://chaqmoq.dev/mime/"><img src="https://github.com/chaqmoq/mime/raw/gh-pages/badge.svg" /></a>
         <a href="https://github.com/chaqmoq/mime/blob/master/CONTRIBUTING.md"><img src="https://img.shields.io/badge/contributing-guide-brightgreen.svg" /></a>
-        <a href="https://twitter.com/chaqmoqdev"><img src="https://img.shields.io/badge/twitter-chaqmoqdev-brightgreen.svg" /></a>
+        <a href="https://t.me/chaqmoqdev"><img src="https://img.shields.io/badge/telegram-chaqmoqdev-brightgreen.svg" /></a>
     </p>
     <p>Multipurpose Internet Mail Extensions (MIME) written in <a href="https://swift.org">Swift</a> language. This is one of the packages of <a href="https://chaqmoq.dev">Chaqmoq</a>. Read the <a href="https://docs.chaqmoq.dev">documentation</a> for more info.</p>
 </div>
